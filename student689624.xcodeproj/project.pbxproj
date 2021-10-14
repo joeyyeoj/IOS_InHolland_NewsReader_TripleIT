@@ -11,6 +11,7 @@
 		401828F027182FA4007C6C10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401828EF27182FA4007C6C10 /* ContentView.swift */; };
 		401828F227182FA5007C6C10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401828F127182FA5007C6C10 /* Assets.xcassets */; };
 		401828F527182FA5007C6C10 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401828F427182FA5007C6C10 /* Preview Assets.xcassets */; };
+		401828FD27183014007C6C10 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401828FC27183014007C6C10 /* ArticleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		401828EF27182FA4007C6C10 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		401828F127182FA5007C6C10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		401828F427182FA5007C6C10 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		401828FC27183014007C6C10 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		401828EC27182FA4007C6C10 /* student689624 */ = {
 			isa = PBXGroup;
 			children = (
+				401828FB27182FF2007C6C10 /* Article */,
 				401828ED27182FA4007C6C10 /* student689624App.swift */,
 				401828EF27182FA4007C6C10 /* ContentView.swift */,
 				401828F127182FA5007C6C10 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				401828F427182FA5007C6C10 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		401828FB27182FF2007C6C10 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				401828FC27183014007C6C10 /* ArticleCell.swift */,
+			);
+			path = Article;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				401828F027182FA4007C6C10 /* ContentView.swift in Sources */,
 				401828EE27182FA4007C6C10 /* student689624App.swift in Sources */,
+				401828FD27183014007C6C10 /* ArticleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
