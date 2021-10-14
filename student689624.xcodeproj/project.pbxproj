@@ -12,6 +12,7 @@
 		401828F227182FA5007C6C10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401828F127182FA5007C6C10 /* Assets.xcassets */; };
 		401828F527182FA5007C6C10 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401828F427182FA5007C6C10 /* Preview Assets.xcassets */; };
 		401828FD27183014007C6C10 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401828FC27183014007C6C10 /* ArticleCell.swift */; };
+		4018290127183456007C6C10 /* ArticleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018290027183456007C6C10 /* ArticleDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		401828F127182FA5007C6C10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		401828F427182FA5007C6C10 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		401828FC27183014007C6C10 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
+		4018290027183456007C6C10 /* ArticleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +75,26 @@
 		401828FB27182FF2007C6C10 /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				401828FC27183014007C6C10 /* ArticleCell.swift */,
+				401828FF2718342C007C6C10 /* List */,
+				401828FE27183418007C6C10 /* Detailpage */,
 			);
 			path = Article;
+			sourceTree = "<group>";
+		};
+		401828FE27183418007C6C10 /* Detailpage */ = {
+			isa = PBXGroup;
+			children = (
+				4018290027183456007C6C10 /* ArticleDetail.swift */,
+			);
+			path = Detailpage;
+			sourceTree = "<group>";
+		};
+		401828FF2718342C007C6C10 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				401828FC27183014007C6C10 /* ArticleCell.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				401828F027182FA4007C6C10 /* ContentView.swift in Sources */,
+				4018290127183456007C6C10 /* ArticleDetail.swift in Sources */,
 				401828EE27182FA4007C6C10 /* student689624App.swift in Sources */,
 				401828FD27183014007C6C10 /* ArticleCell.swift in Sources */,
 			);
