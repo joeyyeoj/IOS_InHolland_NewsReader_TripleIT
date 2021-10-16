@@ -21,6 +21,7 @@
 		403C1E78271B1E670092DDA7 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403C1E77271B1E670092DDA7 /* NewsViewModel.swift */; };
 		403C1E7B271B21F20092DDA7 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 403C1E7A271B21F20092DDA7 /* URLImage */; };
 		403C1E7F271B44C30092DDA7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403C1E7E271B44C30092DDA7 /* ErrorView.swift */; };
+		403C1E83271B58EC0092DDA7 /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403C1E82271B58EC0092DDA7 /* NewsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		403C1E74271B1E090092DDA7 /* ResultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultState.swift; sourceTree = "<group>"; };
 		403C1E77271B1E670092DDA7 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		403C1E7E271B44C30092DDA7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		403C1E82271B58EC0092DDA7 /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				4018290027183456007C6C10 /* ArticleDetail.swift */,
 				401828FC27183014007C6C10 /* ArticleCell.swift */,
 				403C1E7E271B44C30092DDA7 /* ErrorView.swift */,
+				403C1E82271B58EC0092DDA7 /* NewsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				401828F027182FA4007C6C10 /* ContentView.swift in Sources */,
+				403C1E83271B58EC0092DDA7 /* NewsListView.swift in Sources */,
 				4018290127183456007C6C10 /* ArticleDetail.swift in Sources */,
 				403C1E75271B1E090092DDA7 /* ResultState.swift in Sources */,
 				403C1E72271B198D0092DDA7 /* NewsService.swift in Sources */,
