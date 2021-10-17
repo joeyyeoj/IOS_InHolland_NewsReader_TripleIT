@@ -62,6 +62,14 @@ struct NewsCategory: Codable {
     }
 }
 
+struct NewsFeed: Identifiable {
+    let id = UUID()
+    let feedId: Int
+    let name: String
+}
+
+
+
 extension Article{
     static var dummyData: Article {
         .init(id: 134069,

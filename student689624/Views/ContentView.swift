@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+   
+    
     
     var body: some View {
-        NavigationView{
-            NewsListView(feedId: 0)
+            NavigationView{
+                    NewsListView(feedId: 0)
+                        .navigationTitle(Text("Nieuws"))
+                        .navigationBarItems(
+                        leading:
+                            NavigationLink(destination: FilterView()) {
+                                Text("Filter")
+                        },
+                        trailing:
+                            NavigationLink(destination: ContentView()) {
+                                Image(systemName: "person.fill")
+                })
+            }
         }
-    }
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {

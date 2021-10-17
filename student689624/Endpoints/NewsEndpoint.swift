@@ -28,8 +28,11 @@ extension NewsAPI: APIBuilder {
     var urlRequest: URLRequest {
         var url = URLComponents(string: "\(self.baseUrl)\(self.path)")
         url?.queryItems = self.queryParams
-        return URLRequest(url: (url?.url)!)
+        var request = URLRequest(url: (url?.url)!)
         
+        //Write if statement checking if KeyChainAccess has a token, if true, add, if not, dont add
+        request.addValue("16199-f6dbbf6d-4157-4c41-9432-27237b882afc", forHTTPHeaderField: "x-authtoken")
+        return request
     }
     
     var baseUrl: String {
@@ -39,7 +42,8 @@ extension NewsAPI: APIBuilder {
     var path: String {
         switch self {
         case .getNews(let feedId):
-            return "Articles?feed=\(feedId)"
+            //parameter still here in case i decide to add filtering :D
+            return "Articles"
         case .getLikedNews:
             return "Articles/liked"
         case .likeArticle(let articleId):
