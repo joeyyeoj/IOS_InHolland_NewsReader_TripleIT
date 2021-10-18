@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var password: String = ""
 
     private let localStorage: LocalStorage = .init()
+    
     @StateObject var viewModel = LoginViewModelImpl(service: LoginServiceImpl())
 
     var body: some View {
@@ -20,6 +21,17 @@ struct LoginView: View {
             case "":
                 NavigationView{
                     VStack(alignment: .leading){
+                        //Wellicht de smerigste manier ever om deze message te weergeven maar het werkt
+                        switch viewModel.state{
+                            case .failed:
+                            Text("Onjuiste inloggegevens").foregroundColor(.red).padding(.bottom, 8)
+                        case .noAttemptYet:
+                            EmptyView().padding(.bottom, 8)
+                        case .loading:
+                            EmptyView().padding(.bottom, 8)
+                        case .successLogin(content: _):
+                            EmptyView().padding(.bottom, 8)
+                        }
                         VStack(alignment: .leading){
                         Text("Gebruikersnaam")
                         TextField("Gebruikersnaam", text: $username)
@@ -30,6 +42,8 @@ struct LoginView: View {
                         }.padding(.bottom, 20)
                         Button("Login"){
                             self.viewModel.login(username: username, password: password)
+                            username = ""
+                            password = ""
                         }.padding(.vertical, 12).padding(.horizontal, 30).background(Color.blue).foregroundColor(.white).font(.system(size: 15, weight: .heavy)).cornerRadius(10)
                         Spacer()
                     }.padding(.leading, 50)
@@ -37,7 +51,7 @@ struct LoginView: View {
             default:
             NavigationView{
                 Button("Logout"){
-                    localStorage.storeAuthToken("")
+                    viewModel.logout()
                 }
             }.navigationTitle("Profiel")
                 

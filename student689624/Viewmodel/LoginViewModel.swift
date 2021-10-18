@@ -10,6 +10,7 @@ import Combine
 
 protocol LoginViewModel{
     func login(username: String, password: String)
+    func logout()
 }
 
 class LoginViewModelImpl: ObservableObject, LoginViewModel {
@@ -44,5 +45,11 @@ class LoginViewModelImpl: ObservableObject, LoginViewModel {
             }
         
         self.cancellables.insert(cancellable)
+    }
+    
+    func logout(){
+        let localStorage: LocalStorage = .init()
+        self.state = .noAttemptYet
+        localStorage.storeAuthToken("")
     }
 }
