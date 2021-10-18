@@ -9,6 +9,7 @@ import Foundation
 
 
 protocol APIBuilder{
+    var authToken: String { get }
     var urlRequest: URLRequest { get}
     var baseUrl: String { get }
     var path: String { get }
@@ -19,19 +20,48 @@ enum NewsAPI{
     case getNews(Int)
     case getLikedNews
     case likeArticle(Int)
-    case login
-    case register
+    case login(username: String, password: String)
+    case register(username: String, password: String)
 }
 
 extension NewsAPI: APIBuilder {
+    var authToken: String {
+        let localstorage: LocalStorage = .init()
+        return localstorage.fetchAuthToken()
+    }
     
     var urlRequest: URLRequest {
         var url = URLComponents(string: "\(self.baseUrl)\(self.path)")
-        url?.queryItems = self.queryParams
         var request = URLRequest(url: (url?.url)!)
         
+        
+        switch self{
+        case .getNews(_):
+            url?.queryItems = self.queryParams
+            request.httpMethod = "GET"
+        case .getLikedNews:
+            request.httpMethod = "GET"
+        case .likeArticle(_):
+            request.httpMethod = "PUT"
+        case .login(username: let username, password: let password):
+            do{
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                let jsonEncoder = JSONEncoder()
+                let body = LoginBody(UserName: username, Password: password)
+                let JsonBody = try jsonEncoder.encode(body)
+                request.httpMethod = "POST"
+                request.httpBody = JsonBody
+            }
+            catch{
+            }
+        case .register(username: let username, password: let password):
+            request.httpMethod = "POST"
+        }
+        
         //Write if statement checking if KeyChainAccess has a token, if true, add, if not, dont add
-        request.addValue("16199-f6dbbf6d-4157-4c41-9432-27237b882afc", forHTTPHeaderField: "x-authtoken")
+        if(self.authToken != ""){
+            request.addValue(self.authToken, forHTTPHeaderField: "x-authtoken")
+        }
         return request
     }
     
@@ -42,7 +72,6 @@ extension NewsAPI: APIBuilder {
     var path: String {
         switch self {
         case .getNews(let feedId):
-            //parameter still here in case i decide to add filtering :D
             return "Articles"
         case .getLikedNews:
             return "Articles/liked"

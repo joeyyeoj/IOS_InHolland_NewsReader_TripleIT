@@ -12,3 +12,10 @@ enum ResultState {
     case success(content: [Article])
     case failed(error: Error)
 }
+
+enum LoginResultState{
+    case noAttemptYet
+    case loading
+    case successLogin(content: String?)
+    case failed(error: Error)
+}

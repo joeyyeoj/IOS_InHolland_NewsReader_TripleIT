@@ -21,7 +21,7 @@ struct ContentView: View {
                                 Text("Filter")
                         },
                         trailing:
-                            NavigationLink(destination: ContentView()) {
+                            NavigationLink(destination: LoginView()) {
                                 Image(systemName: "person.fill")
                 })
             }
