@@ -19,3 +19,10 @@ enum LoginResultState{
     case successLogin(content: String?)
     case failed(error: Error)
 }
+
+enum RegisterResultState{
+    case noAttemptYet
+    case loading
+    case successRegister(content: RegisterResponse)
+    case failed(error: Error)
+}

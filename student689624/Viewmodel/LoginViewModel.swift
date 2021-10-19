@@ -40,7 +40,7 @@ class LoginViewModelImpl: ObservableObject, LoginViewModel {
                     break
                 }
             } receiveValue: {
-                (response) in self.authtoken = response.AuthToken ?? ""
+                (response) in self.authtoken = response.AuthToken
                 localStorage.storeAuthToken(self.authtoken)
             }
         

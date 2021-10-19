@@ -20,6 +20,7 @@ enum NewsAPI{
     case getNews(Int)
     case getLikedNews
     case likeArticle(Int)
+    case unlikeArticle(Int)
     case login(username: String, password: String)
     case register(username: String, password: String)
 }
@@ -43,6 +44,8 @@ extension NewsAPI: APIBuilder {
             request.httpMethod = "GET"
         case .likeArticle(_):
             request.httpMethod = "PUT"
+        case .unlikeArticle(_):
+            request.httpMethod = "DELETE"
         case .login(username: let username, password: let password):
             do{
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -55,10 +58,18 @@ extension NewsAPI: APIBuilder {
             catch{
             }
         case .register(username: let username, password: let password):
-            request.httpMethod = "POST"
+            do{
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                let jsonEncoder = JSONEncoder()
+                let body = LoginBody(UserName: username, Password: password)
+                let JsonBody = try jsonEncoder.encode(body)
+                request.httpMethod = "POST"
+                request.httpBody = JsonBody
+            }
+            catch{
+            }
         }
         
-        //Write if statement checking if KeyChainAccess has a token, if true, add, if not, dont add
         if(self.authToken != ""){
             request.addValue(self.authToken, forHTTPHeaderField: "x-authtoken")
         }
@@ -71,11 +82,13 @@ extension NewsAPI: APIBuilder {
     
     var path: String {
         switch self {
-        case .getNews(let feedId):
+        case .getNews(_):
             return "Articles"
         case .getLikedNews:
             return "Articles/liked"
         case .likeArticle(let articleId):
+            return "Articles/\(articleId)/like"
+        case .unlikeArticle(let articleId):
             return "Articles/\(articleId)/like"
         case .login:
             return "Users/login"
@@ -88,7 +101,7 @@ extension NewsAPI: APIBuilder {
         switch self {
             case .getNews(let feedId):
                 return [URLQueryItem(name: "feed", value: String(feedId))]
-        case .getLikedNews, .likeArticle(_), .login, .register:
+        case .getLikedNews, .likeArticle(_), .login, .register, .unlikeArticle(_):
             return []
         }
     }

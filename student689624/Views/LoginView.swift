@@ -48,14 +48,15 @@ struct LoginView: View {
                         Spacer()
                     }.padding(.leading, 50)
                 }.navigationTitle("Login")
+                NavigationLink(destination: RegisterView()){
+                    Text("Nog geen account? Registreer hier").padding(.top, 10)
+                }
             default:
             NavigationView{
                 Button("Logout"){
                     viewModel.logout()
                 }
             }.navigationTitle("Profiel")
-                
-            
         }
     }
 }
