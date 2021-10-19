@@ -44,4 +44,24 @@ class NewsViewModelImpl: ObservableObject, NewsViewModel {
         
         self.cancellables.insert(cancellable)
     }
+    
+    func getLikedArticles() {
+        self.state = .loading
+        let cancellable = service.request(from: .getLikedNews)
+            .sink {
+                res in
+                switch res{
+                case .finished:
+                    self.state = .success(content: self.articles)
+                    break
+                case .failure(let error):
+                    self.state = .failed(error: error)
+                    break
+                }
+            } receiveValue: {
+                (response) in self.articles = response.Results
+            }
+        
+        self.cancellables.insert(cancellable)
+    }
 }

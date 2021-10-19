@@ -63,7 +63,7 @@ struct LoginView: View {
                 NavigationLink(destination: LikedArticleView()){
                     Image(systemName: "heart.fill")
                 }
-            )
+            )  
         }
     }
 }
