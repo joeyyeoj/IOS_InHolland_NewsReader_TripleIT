@@ -53,10 +53,17 @@ struct LoginView: View {
                 }
             default:
             NavigationView{
-                Button("Logout"){
-                    viewModel.logout()
+                VStack{
+                    Button("Logout"){
+                        viewModel.logout()
+                    }.padding(.vertical, 12).padding(.horizontal, 30).background(Color.blue).foregroundColor(.white).font(.system(size: 15, weight: .heavy)).cornerRadius(10)
                 }
-            }.navigationTitle("Profiel")
+                
+            }.navigationTitle("Profiel").navigationBarItems(trailing:
+                NavigationLink(destination: LikedArticleView()){
+                    Image(systemName: "heart.fill")
+                }
+            )
         }
     }
 }
