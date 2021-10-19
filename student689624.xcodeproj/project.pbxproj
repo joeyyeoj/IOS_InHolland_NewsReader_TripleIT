@@ -31,7 +31,9 @@
 		40C6686D271F025F00E03359 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6686C271F025E00E03359 /* RegisterService.swift */; };
 		40C6686F271F040100E03359 /* RegisterViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6686E271F040100E03359 /* RegisterViewmodel.swift */; };
 		40C66871271F073600E03359 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C66870271F073600E03359 /* RegisterView.swift */; };
-		40C66873271F160B00E03359 /* LikedArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C66872271F160B00E03359 /* LikedArticleView.swift */; };
+		40C66873271F160B00E03359 /* LikedArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C66872271F160B00E03359 /* LikedArticlesView.swift */; };
+		40C66875271F32F000E03359 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C66874271F32F000E03359 /* DetailViewModel.swift */; };
+		40C66877271F331700E03359 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C66876271F331700E03359 /* ArticleService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +60,9 @@
 		40C6686C271F025E00E03359 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		40C6686E271F040100E03359 /* RegisterViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewmodel.swift; sourceTree = "<group>"; };
 		40C66870271F073600E03359 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		40C66872271F160B00E03359 /* LikedArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedArticleView.swift; sourceTree = "<group>"; };
+		40C66872271F160B00E03359 /* LikedArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedArticlesView.swift; sourceTree = "<group>"; };
+		40C66874271F32F000E03359 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		40C66876271F331700E03359 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				403C1E71271B198D0092DDA7 /* NewsService.swift */,
 				4098DD85271DC0E900823026 /* LoginService.swift */,
 				40C6686C271F025E00E03359 /* RegisterService.swift */,
+				40C66876271F331700E03359 /* ArticleService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				403C1E77271B1E670092DDA7 /* NewsViewModel.swift */,
 				4098DD83271DC08100823026 /* LoginViewModel.swift */,
 				40C6686E271F040100E03359 /* RegisterViewmodel.swift */,
+				40C66874271F32F000E03359 /* DetailViewModel.swift */,
 			);
 			path = Viewmodel;
 			sourceTree = "<group>";
@@ -173,13 +179,13 @@
 			children = (
 				401828EF27182FA4007C6C10 /* ContentView.swift */,
 				4018290027183456007C6C10 /* ArticleDetail.swift */,
-				401828FC27183014007C6C10 /* ArticleCell.swift */,
 				403C1E7E271B44C30092DDA7 /* ErrorView.swift */,
 				403C1E82271B58EC0092DDA7 /* NewsListView.swift */,
 				40307306271C75A1007765B9 /* FilterView.swift */,
 				4098DD7B271DA6DF00823026 /* LoginView.swift */,
 				40C66870271F073600E03359 /* RegisterView.swift */,
-				40C66872271F160B00E03359 /* LikedArticleView.swift */,
+				401828FC27183014007C6C10 /* ArticleCell.swift */,
+				40C66872271F160B00E03359 /* LikedArticlesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4098DD86271DC0E900823026 /* LoginService.swift in Sources */,
+				40C66877271F331700E03359 /* ArticleService.swift in Sources */,
 				40C66871271F073600E03359 /* RegisterView.swift in Sources */,
 				40307307271C75A1007765B9 /* FilterView.swift in Sources */,
 				401828F027182FA4007C6C10 /* ContentView.swift in Sources */,
@@ -279,11 +286,12 @@
 				4098DD84271DC08100823026 /* LoginViewModel.swift in Sources */,
 				40C6686D271F025F00E03359 /* RegisterService.swift in Sources */,
 				403C1E75271B1E090092DDA7 /* ResultState.swift in Sources */,
+				40C66875271F32F000E03359 /* DetailViewModel.swift in Sources */,
 				403C1E72271B198D0092DDA7 /* NewsService.swift in Sources */,
 				401828EE27182FA4007C6C10 /* student689624App.swift in Sources */,
 				4098DD82271DAF5D00823026 /* KeyChain.swift in Sources */,
 				403C1E6C271B13C80092DDA7 /* APIEndpoint.swift in Sources */,
-				40C66873271F160B00E03359 /* LikedArticleView.swift in Sources */,
+				40C66873271F160B00E03359 /* LikedArticlesView.swift in Sources */,
 				4098DD7C271DA6DF00823026 /* LoginView.swift in Sources */,
 				401828FD27183014007C6C10 /* ArticleCell.swift in Sources */,
 				403C1E78271B1E670092DDA7 /* NewsViewModel.swift in Sources */,

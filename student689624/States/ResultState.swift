@@ -26,3 +26,10 @@ enum RegisterResultState{
     case successRegister(content: RegisterResponse)
     case failed(error: Error)
 }
+
+enum LikeState{
+    case successLiked
+    case successUnliked
+    case failed(error: Error)
+    case noAttemptYet
+}
