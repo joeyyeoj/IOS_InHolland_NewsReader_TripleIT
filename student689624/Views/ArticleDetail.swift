@@ -74,10 +74,13 @@ struct ArticleDetail: View {
                 
                 
                 VStack(alignment: .leading){
-                    Text("Gepubliceerd op \(date) om \(time)").font(.caption)
-                    Text(article.title).font(.title2).padding(.vertical, 4)
-                    Text(article.summary)
+                    VStack(alignment: .leading){
+                        Text("Gepubliceerd op \(date) om \(time)").font(.caption)
+                        Text(article.title).font(.title2).padding(.vertical, 4)
+                        Text(article.summary)
+                    }.padding(.leading, 10)
                     HStack{
+                        Spacer()
                         if(token != ""){
                             switch viewModel.state{
                                 
@@ -130,16 +133,18 @@ struct ArticleDetail: View {
                         
                         
                         Button("Delen"){
-                            
+                            guard let urlShare = URL(string: self.article.url) else { return }
+                                    let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+                                    UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
                         }.padding(.vertical, 12).padding(.horizontal, 30).background(Color.blue).foregroundColor(.white).font(.system(size: 15, weight: .heavy)).cornerRadius(10)
                         
                         Button("Lezen"){
-                            
+                            UIApplication.shared.open(URL(string: self.article.url)!)
                         }.padding(.vertical, 12).padding(.horizontal, 30).background(Color.purple).foregroundColor(.white).font(.system(size: 15, weight: .heavy)).cornerRadius(10)
-                        
+                        Spacer()
                         
                     }.padding(.vertical, 8)
-                }.padding(.leading, 20)
+                }
             }
         }
     }
